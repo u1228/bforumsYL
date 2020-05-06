@@ -24,10 +24,4 @@
 
 DateTime используется для получения времени в данный момент (например в сообщениях), а также для сортировки сообщений по времени (на странице новостей)
 
-Requests используется для получения данных из API Яндекс.Карт и для отправки сообщений ботам. 
-
-![](C:\Users\Ilnar\Documents\Python\Yandex\2\BlinForums\useless_files\screen1.jpg)
-
-![screen2](C:\Users\Ilnar\Documents\Python\Yandex\2\BlinForums\useless_files\screen2.jpg)
-
-![screen3](C:\Users\Ilnar\Documents\Python\Yandex\2\BlinForums\useless_files\screen3.jpg)
+Requests используется для получения данных из API Яндекс.Карт и для отправки сообщений ботам.
