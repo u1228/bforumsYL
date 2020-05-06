@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+{% if current_user.id == user.id %}
+<h3>Email: {{ user.email }}</h3>
+<h3><a class="btn btn btn-outline-danger" href="/logout" role="button">Выйти</a></h3>
+{% endif %}
+<p>&nbsp;</p>
+<h2>Личный форум:</h2>
+<div class="alert alert-dark" role="alert">
+  <a href="/f/{{personal.id}}">{{personal.title}}</a><b color="CCC">#{{personal.id}}</b>
+</div>
+<p>&nbsp;</p>
+{% if current_user.id == user.id %}
+<h2>Приватные форумы:</h2>
+{% for forum in private %}
+    <div class="alert alert-light" role="alert">
+      <a href="/f/{{forum.id}}">{{forum.title}}</a><b color="CCC">#{{forum.id}}</b>
+    </div>
+{% endfor %}
+{% if private == [] %}
+<h4 color="#AAA">Пусто...</h4>
+{% endif %}
+{% endif %}
+
+<h2>Отслеживаемое:</h2>
+{% for forum in forums %}
+    <div class="alert alert-dark" role="alert">
+      <a href="/f/{{forum.id}}">{{forum.title}}</a><b color="CCC">#{{forum.id}}</b>
+    </div>
+{% endfor %}
+{% if forums == [] %}
+<h4 color="#AAA">Пусто...</h4>
+{% endif %}
+
+{% endblock %}

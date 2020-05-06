@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(class="form-control") }}<br>
+            {% for error in form.title.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.editors.label }}<br>
+            {{ form.editors(class="form-control") }}<br>
+            Если писать смогут все, то оставьте это поле пустым.
+            {% for error in form.editors.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>&nbsp;</p>
+        <p>{{ form.private() }} {{ form.private.label }}</p>
+        <p>{{ form.submit(type="submit", class="btn btn-light") }}</p>
+        {% if message %}<div class="alert alert-danger" role="alert">{{ message }}</div>{% endif %}
+    </form>
+{% endblock %}

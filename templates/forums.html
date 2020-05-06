@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<a class="btn btn-outline-light" href="/createforum" role="button">Создать форум</a>
+<a class="btn btn-outline-light" href="/search" role="button", style="float: right">Поиск</a>
+<p>&nbsp;</p>
+<h5>Ваши форумы:</h5>
+{% for forum in created %}
+  {% if forum.private %}
+    <div class="alert alert-light" role="alert">
+      <a href="/f/{{forum.id}}">{{forum.title}}</a><b color="CCC">#{{forum.id}}</b>
+    </div>
+  {% else %}
+    <div class="alert alert-dark" role="alert">
+      <a href="/f/{{forum.id}}">{{forum.title}}</a><b color="CCC">#{{forum.id}}</b>
+    </div>
+  {% endif %}
+{% endfor %}
+<h5>Форумы, которые вы отслеживаете:</h5>
+{% for forum in follows %}
+  {% if forum.private %}
+    <div class="alert alert-light" role="alert">
+      <a href="/f/{{forum.id}}">{{forum.title}}</a><b color="CCC">#{{forum.id}}</b>
+    </div>
+  {% else %}
+    <div class="alert alert-dark" role="alert">
+      <a href="/f/{{forum.id}}">{{forum.title}}</a><b color="CCC">#{{forum.id}}</b>
+    </div>
+  {% endif %}
+{% endfor %}
+{% if follows == [] %}
+<h4 color="#AAA">Пусто...</h4>
+{% endif %}
+{% endblock %}

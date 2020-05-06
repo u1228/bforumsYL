@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<p>&nbsp;</p>
+{% for event in events %}
+  <div class="message_header alert alert-secondary">
+    <a href="/f/{{event.forum.id}}">{{ event.forum.title }}</a><i>#{{event.forum.id}}</i> <a href="/e/{{event.id}}">{{event.title}}</a>
+  </div>
+  <div class="multiline alert alert-dark">{{format_message(event.desc)|safe}}
+
+
+{% if event.geo_point %}Адрес: {{event.geo_point}}{% endif %}
+Дата: {{event.datetime.strftime("%d.%m.%Y")}}</div>
+{% endfor %}
+{% endblock %}

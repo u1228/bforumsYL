@@ -1,0 +1,21 @@
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+    max-width: 100%;
+}
+blockquote {
+    border-left: 3px solid #D40300;
+    padding-left: 1rem;
+}
+pre {
+    border-radius: 20px;
+    border: 2px solid #000;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,1);
+}
+.codehilite {
+    border-radius: 20px;
+}

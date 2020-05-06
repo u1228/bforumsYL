@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+<p>&nbsp;</p>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(class="form-control", type="text") }}<br>
+            {% for error in form.title.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.desc.label }}<br>
+            {{ form.desc(class="form-control", rows="3") }}<br>
+            {% for error in form.desc.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(class="form-control", type="text") }}<br>
+            {% for error in form.address.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.datetime.label }}<br>
+            {{ form.datetime() }}<br>
+            {% for error in form.datetime.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>&nbsp;</p>
+        <p>{{ form.submit(type="submit", class="btn btn-light") }}</p>
+        {% if message %}<div class="alert alert-danger" role="alert">{{ message }}</div>{% endif %}
+    </form>
+{% endblock %}

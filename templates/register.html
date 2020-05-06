@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+    <p>
+        Email
+        <br>
+            <input type="email" class="form-control" readonly value="{{email}}">
+        <br>
+    </p>
+    <p>
+        {{ form.nickname.label }}
+        <br>
+        {{ form.nickname(class="form-control") }}
+        <br>
+        {% for error in form.nickname.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}
+        <br>
+          {{ form.password(class="form-control", type="password") }}
+        <br>
+        {% for error in form.password.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.repeat_password.label }}
+        <br>
+        {{ form.repeat_password(class="form-control", type="password") }}
+        <br>
+        {% for error in form.repeat_password.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+        <p>{{ form.submit(type="submit", class="btn btn-light") }}</p>
+        <p>Вы уже регистрировались? Тогда <a href="/login">войдите</a>.</p>
+        {% if message %}<div class="alert alert-danger" role="alert">{{ message }}</div>{% endif %}
+    </form>
+{% endblock %}

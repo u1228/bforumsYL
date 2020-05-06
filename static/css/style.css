@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+body {
+    background: #000;
+    color: #ccc;
+    height: 100%;
+    margin: 0; 
+    display:flex; 
+    flex-direction:column; 
+}
+img:not(.logo) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+html {
+    height: 100%;
+    margin: 0;
+}
+footer {
+    margin-top:auto; 
+}
+.multiline {
+    white-space: pre-wrap;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.message_header {
+    padding: 10px;
+    margin-bottom: 0;
+}
